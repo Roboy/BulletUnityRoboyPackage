@@ -4,12 +4,5 @@
 	"version": "0.1.0",
 	"unity": "2019.3.6f1",
 	"author": "Roboy",
-	"description": "Bridge between Unity and pyBullet Server",
-	"dependencies": {
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/dilmerv/UnityPackageDependency.git",
-		"revision": "679387cb1fa822190b530bdbb8ea0945f508b5f6"
-	}
+	"description": "Bridge between Unity and pyBullet Server"
 }
