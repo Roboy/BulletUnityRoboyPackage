@@ -5,5 +5,12 @@
 	"unity": "2019.3",
 	"unityRelease": "6f1",
 	"author": "Roboy",
-	"description": "Bridge between Unity and pyBullet Server"
+	"description": "Bridge between Unity and pyBullet Server",
+	"dependencies": {
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/siemens/ros-sharp.git",
+		"revision": "344c5933c186c2909f91e9e846b55025525e3ea2"
+	}
 }
