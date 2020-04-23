@@ -1,9 +1,0 @@
-{
-	"name": "com.roboy.bulletbridge",
-	"displayName": "Roboy's BulletBridge",
-	"version": "0.1.0",
-	"unity": "2019.3",
-	"unityRelease": "6f1",
-	"author": "Roboy",
-	"description": "Bridge between Unity and pyBullet Server"
-}
