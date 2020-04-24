@@ -48,64 +48,64 @@ public class BulletBridge : MonoBehaviour
         public List<int> kinematicChain;
     }
 
-    struct GloveInfo
-    {
-        public GloveInfo(GameObject glove, List<int> jointIds, List<string> jointNames)
-        {
-            var vHand = glove.GetComponent<SenseGlove_VirtualHand>();
+    //struct GloveInfo
+    //{
+    //    public GloveInfo(GameObject glove, List<int> jointIds, List<string> jointNames)
+    //    {
+    //        var vHand = glove.GetComponent<SenseGlove_VirtualHand>();
 
-            isRight = glove.name.Contains("Right"); 
+    //        isRight = glove.name.Contains("Right"); 
                 
-            //vHand.senseGlove.IsRight;// glove.GetComponent<SenseGlove_Object>().IsRight;
-            jointTFs = new List<List<Transform>>()
-            {
-                vHand.thumbJoints,
-                vHand.indexFingerJoints,
-                vHand.middleFingerJoints,
-                vHand.ringFingerJoints,
-                vHand.pinkyJoints
-            };
-            jointCorrections = vHand.fingerCorrection;
-            var pref = "lh_";
-            if (isRight) pref = "rh_";
-            handJointsIds = new List<List<int>>(){
-                new List<int> {
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "THJ5")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "THJ4")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "THJ3")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "THJ2"))
-                    //b3JointIds.ElementAt(jointNames.IndexOf(pref + "THJ1"))
+    //        //vHand.senseGlove.IsRight;// glove.GetComponent<SenseGlove_Object>().IsRight;
+    //        jointTFs = new List<List<Transform>>()
+    //        {
+    //            vHand.thumbJoints,
+    //            vHand.indexFingerJoints,
+    //            vHand.middleFingerJoints,
+    //            vHand.ringFingerJoints,
+    //            vHand.pinkyJoints
+    //        };
+    //        jointCorrections = vHand.fingerCorrection;
+    //        var pref = "lh_";
+    //        if (isRight) pref = "rh_";
+    //        handJointsIds = new List<List<int>>(){
+    //            new List<int> {
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "THJ5")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "THJ4")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "THJ3")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "THJ2"))
+    //                //b3JointIds.ElementAt(jointNames.IndexOf(pref + "THJ1"))
 
-                },
-                new List<int> {
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "FFJ3")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "FFJ2")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "FFJ1"))
-                },
-                new List<int> {
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "MFJ3")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "MFJ2")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "MFJ1"))
-                },
-                new List<int> {
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "RFJ3")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "RFJ2")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "RFJ1"))
-                },
-                new List<int> {
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "LFJ3")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "LFJ2")),
-                    jointIds.ElementAt(jointNames.IndexOf(pref + "LFJ1"))
-                }
-            };
-            thumbPrevSetpoints = new List<double>(new double[handJointsIds[0].Count]);
-        }
-        public List<List<Transform>> jointTFs;
-        public List<List<Quaternion>> jointCorrections;
-        public bool isRight;
-        public List<List<int>> handJointsIds;
-        public List<double> thumbPrevSetpoints;
-    }
+    //            },
+    //            new List<int> {
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "FFJ3")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "FFJ2")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "FFJ1"))
+    //            },
+    //            new List<int> {
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "MFJ3")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "MFJ2")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "MFJ1"))
+    //            },
+    //            new List<int> {
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "RFJ3")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "RFJ2")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "RFJ1"))
+    //            },
+    //            new List<int> {
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "LFJ3")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "LFJ2")),
+    //                jointIds.ElementAt(jointNames.IndexOf(pref + "LFJ1"))
+    //            }
+    //        };
+    //        thumbPrevSetpoints = new List<double>(new double[handJointsIds[0].Count]);
+    //    }
+    //    public List<List<Transform>> jointTFs;
+    //    public List<List<Quaternion>> jointCorrections;
+    //    public bool isRight;
+    //    public List<List<int>> handJointsIds;
+    //    public List<double> thumbPrevSetpoints;
+    //}
 
     // Start is called before the first frame update
     void Start()
